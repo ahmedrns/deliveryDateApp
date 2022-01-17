@@ -11,3 +11,15 @@ export interface IUserInputDTO {
   email: string;
   password: string;
 }
+export interface IDeliveryInputDTO {
+  postalCode:string
+  products:[ 
+    productId: string,
+    name: string,
+    DeliveryDays: [string],
+    ProductType: string,
+    DaysInAdvance: number,
+  ]
+ 
+}
+

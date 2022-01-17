@@ -7,8 +7,8 @@ import Logger from './logger';
 import './events';
 
 export default async ({ expressApp }) => {
-  const mongoConnection = await mongooseLoader();
-  Logger.info('✌️ DB loaded and connected!');
+  // const mongoConnection = await mongooseLoader();
+  // Logger.info('✌️ DB loaded and connected!');
 
   /**
    * WTF is going on here?
@@ -25,17 +25,9 @@ export default async ({ expressApp }) => {
   };
 
   // It returns the agenda instance because it's needed in the subsequent loaders
-  const { agenda } = await dependencyInjectorLoader({
-    mongoConnection,
-    models: [
-      userModel,
-      // salaryModel,
-      // whateverModel
-    ],
-  });
   Logger.info('✌️ Dependency Injector loaded');
 
-  await jobsLoader({ agenda });
+  // await jobsLoader({ agenda });
   Logger.info('✌️ Jobs loaded');
 
   await expressLoader({ app: expressApp });
